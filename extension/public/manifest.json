@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing URL Check",
+  "version": "1.0.0",
+  "description": "A local machine-learning estimate of phishing signals in the current URL.",
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://127.0.0.1:8000/*"],
+  "action": {
+    "default_title": "Check this URL",
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon-128.png",
+      "32": "icon-128.png",
+      "128": "icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icon-128.png",
+    "32": "icon-128.png",
+    "128": "icon-128.png"
+  }
+}

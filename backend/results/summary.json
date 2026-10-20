@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "rows": 235795,
+  "phishing_rows": 100945,
+  "legitimate_rows": 134850,
+  "random_train_rows": 188636,
+  "random_test_rows": 47159,
+  "hostname_train_rows": 188840,
+  "hostname_test_rows": 46955,
+  "hostname_overlap": 0,
+  "hostname_test_phishing_rate": 0.4238739218400596
+}

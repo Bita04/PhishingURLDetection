@@ -1,0 +1,128 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #193133;
+  background: #f4f8f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --teal: #069494;
+  --teal-dark: #056d6d;
+  --teal-light: #e2f5f3;
+  --teal-tint: #f2f9f8;
+  --ink: #193133;
+  --muted: #5f7274;
+  --line: #dce7e6;
+  --white: #ffffff;
+  --red: #bd3f38;
+  --red-dark: #902b27;
+  --red-light: #fff0ed;
+  --button-bg: #056d6d;
+  --button-hover: #034f4f;
+  --button-text: #ffffff;
+  --shadow: 0 12px 36px rgb(16 57 59 / 8%);
+  color-scheme: light dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  background: var(--teal-tint);
+}
+
+button, input { font: inherit; }
+
+button:focus-visible, input:focus-visible {
+  outline: 3px solid #069494;
+  outline-offset: 3px;
+}
+
+.app-shell {
+  width: min(100%, 560px);
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.header { display: flex; align-items: center; gap: 13px; }
+.brand-icon { width: 42px; height: 42px; }
+.eyebrow { margin: 0 0 3px; color: var(--teal-dark); font-size: 11px; font-weight: 750; letter-spacing: .12em; }
+h1 { margin: 0; color: var(--ink); font-size: 22px; line-height: 1.2; }
+.intro { margin: 19px 0 22px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.url-form label { display: block; margin-bottom: 7px; color: var(--ink); font-size: 13px; font-weight: 650; }
+.input-row { display: flex; gap: 9px; }
+.input-row input { min-width: 0; min-height: 46px; flex: 1; padding: 0 12px; border: 1px solid #aabbbb; border-radius: 9px; color: var(--ink); background: var(--white); }
+.input-row button, .retry-button { min-height: 46px; padding: 0 17px; border: 0; border-radius: 9px; background: var(--button-bg); color: var(--button-text); font-weight: 700; cursor: pointer; }
+.input-row button:hover, .retry-button:hover { background: var(--button-hover); }
+.input-row button:disabled { cursor: not-allowed; opacity: .55; }
+.status { min-height: 22px; margin: 13px 0; color: var(--muted); font-size: 13px; }
+.current-url { overflow: hidden; margin: 20px 0 10px; padding: 9px 11px; border-radius: 8px; background: var(--teal-tint); color: var(--muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.spinner { display: inline-block; width: 13px; height: 13px; margin: 0 6px -2px 0; border: 2px solid var(--teal-light); border-top-color: var(--teal); border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.result-card { margin-top: 13px; padding: 19px; border: 1px solid var(--line); border-radius: 12px; background: var(--teal-tint); }
+.result-card.is-suspicious { border-color: #edc4bd; background: var(--red-light); }
+.verdict-row { display: flex; align-items: center; gap: 12px; }
+.verdict-icon { display: grid; width: 37px; height: 37px; place-items: center; border-radius: 50%; background: var(--teal-light); color: var(--teal-dark); font-size: 21px; font-weight: 800; }
+.is-suspicious .verdict-icon { background: #f8d9d3; color: var(--red-dark); }
+.verdict-row .eyebrow { margin-bottom: 2px; }
+.is-suspicious .eyebrow { color: var(--red-dark); }
+.result-card h2 { margin: 0; color: var(--teal-dark); font-size: 19px; }
+.is-suspicious h2 { color: var(--red-dark); }
+.probability { margin-top: 18px; }
+.probability-label { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 12px; }
+.probability-label strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+.bar-track { height: 8px; overflow: hidden; margin-top: 7px; border-radius: 99px; background: #dce9e8; }
+.bar-fill { height: 100%; min-width: 2px; border-radius: inherit; background: var(--teal); transition: width .25s ease; }
+.is-suspicious .bar-track { background: #f0d8d3; }
+.is-suspicious .bar-fill { background: var(--red); }
+.result-card h3 { margin: 18px 0 7px; color: var(--ink); font-size: 13px; }
+.reason-list { margin: 0; padding-left: 19px; color: var(--ink); font-size: 12px; line-height: 1.55; }
+.reason-list li + li { margin-top: 5px; }
+footer { margin-top: 20px; color: var(--muted); font-size: 12px; }
+.retry-button { min-height: 38px; padding-inline: 13px; }
+
+.extension-mode { width: 360px; max-width: 100%; padding: 22px; }
+.extension-mode .intro { margin: 14px 0 10px; }
+.extension-mode .status { margin: 9px 0; }
+.extension-mode .result-card { margin-top: 10px; padding: 15px; }
+.extension-mode footer { margin-top: 14px; }
+
+@media (max-width: 420px) {
+  body { padding: 13px; }
+  .app-shell { padding: 21px; }
+  .input-row { flex-direction: column; }
+  .input-row button { width: 100%; }
+  .extension-mode { width: 360px; padding: 18px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #e6f1f0;
+    background: #111b1c;
+    --teal: #2bc3bb;
+    --teal-dark: #72ddd4;
+    --teal-light: #173b3a;
+    --teal-tint: #172526;
+    --ink: #e6f1f0;
+    --muted: #adbfbe;
+    --line: #344646;
+    --white: #1c2a2b;
+    --red: #ff8275;
+    --red-dark: #ffaaa0;
+    --red-light: #352322;
+    --button-bg: #72ddd4;
+    --button-hover: #2bc3bb;
+    --button-text: #0b2928;
+    --shadow: 0 12px 36px rgb(0 0 0 / 22%);
+  }
+  .input-row input { border-color: #526866; }
+  .bar-track { background: #334846; }
+  .is-suspicious .bar-track { background: #553734; }
+  .is-suspicious .verdict-icon { background: #50312e; }
+}
